@@ -89,10 +89,14 @@ export class Random implements INodeType {
 				};
 
 				// Utiliza  helper httpRequest do n8n, conforme as melhores práticas
+				// --- CÓDIGO CORRIGIDO ---
 				const response = await this.helpers.httpRequest(options);
 
-				// O resultado é uma string com o número e uma quebra de linha (\n)
-				const randomNumber = parseInt(response.trim(), 10);
+				// Garante que a resposta (que pode ser um Buffer) seja convertida para string
+				const responseBody = response.toString();
+
+				// Agora o .trim() vai funcionar, pois responseBody é uma string
+				const randomNumber = parseInt(responseBody.trim(), 10);
 
 				if (isNaN(randomNumber)) {
 					throw new NodeApiError(this.getNode(), { message: 'Failed to parse a valid number from Random.org API response.' });

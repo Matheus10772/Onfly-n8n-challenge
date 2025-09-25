@@ -1,8 +1,6 @@
-version: '3.7'
-
 services:
   postgres:
-    image: postgres
+    image: public.ecr.aws/docker/library/postgres:11
     restart: always
     environment:
       - POSTGRES_USER=default
