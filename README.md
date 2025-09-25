@@ -36,7 +36,7 @@ Siga os passos abaixo para configurar o ambiente n8n, instalar o conector custom
 ### 1. Clonar o Repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
+git clone https://github.com/Matheus10772/Onfly-n8n-challenge.git
 cd onfly-n8n-challenge
 ```
 
@@ -87,7 +87,7 @@ npm link
 cd ~/.n8n/custom
 
 # Link o pacote que acabamos de disponibilizar globalmente
-npm link n8n-nodes-random
+npm link n8nrandom
 ```
 
 ### 4. Reinicie o n8n e Teste
