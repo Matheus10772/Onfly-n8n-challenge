@@ -85,24 +85,17 @@ export class Random implements INodeType {
 				const options: IHttpRequestOptions = {
 					method: 'GET',
 					url: `${apiUrl}?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
-					json: false, // We expect plain text
+					json: false,
 				};
 
-				// Utiliza  helper httpRequest do n8n, conforme as melhores práticas
-				// --- CÓDIGO CORRIGIDO ---
 				const response = await this.helpers.httpRequest(options);
-
-				// Garante que a resposta (que pode ser um Buffer) seja convertida para string
-				const responseBody = response.toString();
-
-				// Agora o .trim() vai funcionar, pois responseBody é uma string
-				const randomNumber = parseInt(responseBody.trim(), 10);
+				
+				const randomNumber = response
 
 				if (isNaN(randomNumber)) {
 					throw new NodeApiError(this.getNode(), { message: 'Failed to parse a valid number from Random.org API response.' });
 				}
 
-				// Anexa o resultado ao item original
 				const newItem: INodeExecutionData = {
 					json: {
 						...items[i].json,
