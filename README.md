@@ -68,7 +68,7 @@ mkdir -p ~/.n8n/custom
 
 ```bash
 # Navegue até a pasta do código do node
-cd ../n8n-nodes-random
+cd ../n8nnoderandom
 
 # Instale as dependências
 npm install
