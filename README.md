@@ -109,7 +109,7 @@ Agora, acesse `http://localhost:5678`, crie um novo workflow e procure pelo node
 .
 ├── n8n-infra/              # Contém a configuração do Docker para o n8n
 │   └── docker-compose.yml
-├── n8n-nodes-random/       # Projeto do conector customizado
+├── n8nnoderandom/       # Projeto do conector customizado
 │   ├── nodes/
 │   │   └── Random/
 │   │       ├── Random.node.ts  # Lógica principal e definição do node
