@@ -11,7 +11,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      # CORRIGIDO: O usuário (-U) agora é 'default', o mesmo definido em POSTGRES_USER.
       test: ["CMD-SHELL", "pg_isready -U default -d n8n"]
       interval: 5s
       timeout: 5s
@@ -29,10 +28,6 @@ services:
       - DB_POSTGRESDB_PASSWORD=12345
       - GENERIC_TIMEZONE=America/Sao_Paulo # Ajustado para um timezone mais comum no Brasil
       - TZ=America/Sao_Paulo
-      # As variáveis abaixo são para uso em produção com domínio, podem ser comentadas para teste local
-      # - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
-      # - N8N_PROTOCOL=https
-      # - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
     ports:
       - "127.0.0.1:5678:5678"
     volumes:
